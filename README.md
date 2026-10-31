@@ -1,4 +1,4 @@
-# PVC均价线全自动交易系统
+# 日内均价线全自动交易系统
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com)
@@ -6,7 +6,7 @@
 
 ## 项目简介
 
-实盘运行的PVC均价线全自动交易系统，采用主备租约实现云端故障切换，适用于A股和期货量化交易。
+实盘运行的日内均价线全自动交易系统，采用主备租约实现云端故障切换，适用于A股和期货量化交易。
 
 ## 核心特性
 
