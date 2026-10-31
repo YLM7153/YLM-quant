@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Config (contains secrets)
+config.yaml
+.env
+*.key
+*.pem
+
+# Data
+data/
+*.db
+*.sqlite
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Docker
+.docker/

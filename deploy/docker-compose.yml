@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  pvc-trading:
+    build: .
+    container_name: pvc-trading-system
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config:/app/config
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai
+      - PYTHONUNBUFFERED=1
+    networks:
+      - trading-network
+      
+  # 备节点（可选，用于高可用部署）
+  pvc-trading-backup:
+    build: .
+    container_name: pvc-trading-backup
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./config:/app/config
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai
+      - PYTHONUNBUFFERED=1
+    networks:
+      - trading-network
+
+networks:
+  trading-network:
+    driver: bridge
