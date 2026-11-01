@@ -18,11 +18,11 @@ class LeaseManager:
         self.primary = Node(primary_url)
         self.backup = Node(backup_url)
         self.heartbeat_interval = 10  # 秒
-        
+
     def check_heartbeat(self):
         if not self.primary.is_alive():
             self.activate_backup()
-            
+
     def activate_backup(self):
         self.backup.start()
         self.notify_ops("主节点失效，备节点已接管")
@@ -45,7 +45,7 @@ def check_direction_flip(current_price, last_price, direction):
 def get_buy_anchor(price, settlement):
     # 错误做法：使用昨结算
     # anchor = yesterday_settlement
-    
+
     # 正确做法：使用实时动态结算价
     anchor = settlement.realtime_settlement(price)
     return anchor
@@ -87,21 +87,46 @@ pvc-quant-system/
 - **部署**: Docker + 阿里云轻量服务器
 - **数据源**: Tushare Pro API
 
-## 获取完整代码
+---
 
-完整版包含：
-- 完整源代码（Python + FastAPI）
-- Docker部署配置
-- 详细的运维文档
-- 1个月技术支持
+## 购买完整源码（三档授权）
 
-**售价：¥2,980**
+系统已实盘运行，代码可直接部署上线。提供三档授权，按需选择：
 
-联系：书成AI客服 或 程序员客栈私信
+| 授权档位 | 价格 | 包含内容 |
+|---------|------|---------|
+| 源码版 | **¥980** | 完整 Python + FastAPI 源码、Docker 部署配置、基础文档 |
+| 完整版（推荐） | **¥2,980** | 源码版全部 + 回测引擎 backtest.py + 实盘运维手册 + 1 个月技术支持 |
+| 企业版 | **¥9,800** | 完整版全部 + 主备租约高可用方案 + 策略定制 + 3 个月支持 |
 
-## 免责声明
+### 如何购买
 
-本系统仅供学习和研究使用，不构成投资建议。量化交易存在风险，请谨慎使用。
+1. 选定档位，用下方收款方式付款，备注「日内交易系统 + 档位」
+2. 将付款截图发至微信（联系方式见下）
+3. 确认到账后，拉交付群 / 发送源码网盘链接与部署文档
+
+### 收款方式
+
+- **支付宝**：`19972165067`（户名：孟凡芝）
+- **招商银行**：户名 朱其国，账号 `6214850278507451`
+
+### 联系方式
+
+- 微信：见书成AI主页资料 / 程序员客栈私信「日内交易系统」
+- 演示环境：私信获取实盘演示
+
+---
+
+## For International Buyers
+
+This is a production-grade **intraday moving-average automated trading system** running live, with primary/backup lease failover for cloud fault-tolerance. Source license available:
+
+- **Source license**: **$139** (≈¥980)
+- **Full license (recommended)**: **$419** (≈¥2,980) — includes backtest engine, ops manual, 1-month support
+- **Enterprise license**: **$1,390** (≈¥9,800)
+
+Payment via **Alipay** (international card supported) / **Wise** / **PayPal** — we confirm the exact method on first contact.
+Contact: open an issue or message on this repo, or via the channels above.
 
 ---
 
@@ -111,7 +136,8 @@ pvc-quant-system/
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/pvc-quant-system.git
+git clone https://github.com/YLM7153/YLM-quant.git
+cd YLM-quant
 
 # 构建Docker镜像
 docker-compose build
@@ -148,20 +174,8 @@ lease:
 
 ## 许可证
 
-MIT License - 详见 LICENSE 文件
+MIT License - 详见 LICENSE 文件。商业授权（含源码售卖）请按上方「购买完整源码」档位执行。
 
-## 联系方式
+## 免责声明
 
-- 售价：¥2,980（含源码+文档+技术支持）
-- 购买渠道：书成AI客服 / 程序员客栈私信
-- 演示环境：私信获取
-
----
-**免责声明**：本系统仅供学习和研究使用，不构成投资建议。量化交易存在风险，请谨慎使用。
-
----
-**支付宝收款账号：19972165067（户名：孟凡芝）**
-
-**招商银行收款账号**
-- 户名：朱其国
-- 账号：6214850278507451
+本系统仅供学习和研究使用，不构成投资建议。量化交易存在风险，请谨慎使用。实盘指标为历史回测/运行数据，不代表未来收益。
